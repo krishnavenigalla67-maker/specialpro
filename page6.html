@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Falling in Love Again 💞</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #0a0003, #1a000b, #000);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffd9b3;
+    font-family: "Playfair Display", serif;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 3.5em;
+    color: #ffe0c1;
+    text-shadow: 0 0 20px #ff9966, 0 0 40px #ff6600, 0 0 80px #ff3300;
+    animation: fadeIn 3s ease-in forwards, pulse 4s ease-in-out infinite;
+    opacity: 0;
+    z-index: 10;
+  }
+
+  p {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #ffd1a9;
+    opacity: 0;
+    animation: fadeIn 5s ease-in 2s forwards;
+    text-shadow: 0 0 10px #ff9966;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  @keyframes pulse {
+    0%,100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.04); opacity: 1; }
+  }
+
+  /* Soft glowing mist layers */
+  .mist {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,120,80,0.1), rgba(255,60,80,0.05), transparent);
+    filter: blur(100px);
+    animation: mistGlow 10s ease-in-out infinite alternate;
+  }
+
+  .mist:nth-child(1) { animation-delay: 0s; }
+  .mist:nth-child(2) { animation-delay: 2s; width: 900px; height: 900px; }
+  .mist:nth-child(3) { animation-delay: 4s; width: 1100px; height: 1100px; }
+
+  @keyframes mistGlow {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.3); opacity: 0.9; }
+  }
+
+  /* Floating background hearts */
+  .heart {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: radial-gradient(circle, #ffb3c6, #ff0055);
+    clip-path: polygon(50% 0%, 61% 16%, 78% 20%, 84% 35%, 83% 52%, 68% 75%, 50% 90%, 32% 75%, 17% 52%, 16% 35%, 22% 20%, 39% 16%);
+    opacity: 0.8;
+    animation: floatUp 10s linear infinite;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(100vh) scale(0.6); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+  }
+
+  /* Twinkling particles around text */
+  .spark {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff3e0, #ff9966);
+    opacity: 0.8;
+    animation: twinkle 2s ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.3); }
+  }
+
+  /* Final glowing heart animation */
+  .big-heart {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #ff80a6, #ff0048);
+    clip-path: polygon(50% 0%, 61% 16%, 78% 20%, 84% 35%, 83% 52%, 68% 75%, 50% 90%, 32% 75%, 17% 52%, 16% 35%, 22% 20%, 39% 16%);
+    bottom: -150px;
+    opacity: 0;
+    animation: appear 2s ease-in 8s forwards, heartbeat 2s infinite 10s;
+    filter: drop-shadow(0 0 30px #ff6688);
+  }
+
+  @keyframes appear {
+    from { opacity: 0; transform: scale(0.3) translateY(50px); }
+    to { opacity: 1; transform: scale(1.2) translateY(-50px); }
+  }
+
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1.2); }
+    50% { transform: scale(1.5); }
+  }
+
+  audio {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 180px;
+    border-radius: 10px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="mist"></div>
+  <div class="mist"></div>
+  <div class="mist"></div>
+
+  <h1>✨ I Fall for You Again ✨</h1>
+  <p>Even after all this time... my heart still whispers your name. 💞</p>
+
+  <div class="big-heart"></div>
+
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/02/28/audio_0a7359c9d2.mp3?filename=soft-romantic-piano-14074.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Floating hearts
+    for(let i=0;i<50;i++){
+      const h=document.createElement('div');
+      h.classList.add('heart');
+      h.style.left=Math.random()*100+'vw';
+      h.style.animationDuration=6+Math.random()*8+'s';
+      h.style.width=h.style.height=8+Math.random()*10+'px';
+      document.body.appendChild(h);
+    }
+
+    // Twinkling sparks around text
+    for(let i=0;i<60;i++){
+      const s=document.createElement('div');
+      s.classList.add('spark');
+      s.style.left=Math.random()*100+'vw';
+      s.style.top=Math.random()*100+'vh';
+      s.style.animationDuration=1.5+Math.random()*3+'s';
+      document.body.appendChild(s);
+    }
+  </script>
+</div>
+    <button class="bottom-end-btn" onclick="location.href='page1.html'">
+  💗 waste fellow 💗
+</button>
+
+<style>
+  .bottom-end-btn {
+    position: fixed;
+    bottom: 20px;     /* distance from bottom */
+    right: 20px;      /* distance from right */
+    
+    padding: 12px 25px;
+    font-size: 18px;
+    color: white;
+    background: #ff80b3;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    
+    font-family: "Comic Sans MS", "Poppins", cursive;
+
+    /* glow animation */
+    animation: cuteGlow 1.6s infinite alternate;
+  }
+
+  @keyframes cuteGlow {
+    from {
+      box-shadow: 0 0 10px #ffa5cc, 0 0 25px #ff6db3;
+      transform: scale(1);
+    }
+    to {
+      box-shadow: 0 0 25px #ffc6df, 0 0 55px #ff4699;
+      transform: scale(1.07);
+    }
+  }
+</style>
+</body>
+</html>

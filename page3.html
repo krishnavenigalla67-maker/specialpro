@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Only 3D Image Carousel</title>
+  <link rel="stylesheet" href="page3style.css">
+
+</head>
+<body>
+
+    <div class="carousel">
+
+        <div class="carousel-control-button left"><input type="radio" name="carousel-control-input"></div>
+        <div class="carousel-control-button right"><input type="radio" name="carousel-control-input" checked></div>
+    
+        <div class="carousel-rotation-direction">
+    
+                <ul class="carousel-item-wrapper" style="--_num-elements: 11">
+    
+                        <li class="carousel-item" style="--_index: 1; --_image-url: url('Images/1.jpg')"><p>Architecture Example 1</p></li>
+                        <li class="carousel-item" style="--_index: 3; --_image-url: url('Images/10.jpg')"><p>Architecture Example 2</p></li>
+                        <li class="carousel-item" style="--_index: 2; --_image-url: url('Images/3.jpg')"><p>Architecture Example 3</p></li>
+                        <li class="carousel-item" style="--_index: 4; --_image-url: url('Images/11.jpg')"><p>Architecture Example 4</p></li>
+                        <li class="carousel-item" style="--_index: 5; --_image-url: url('Images/9.jpg')"><p>Architecture Example 5</p></li>
+                        <li class="carousel-item" style="--_index: 6; --_image-url: url('Images/4.jpg')"><p>Architecture Example 6</p></li>
+                        <li class="carousel-item" style="--_index: 7; --_image-url: url('Images/8.jpg')"><p>Architecture Example 7</p></li>
+                        <li class="carousel-item" style="--_index: 8; --_image-url: url('Images/12.jpg')"><p>Architecture Example 8</p></li>
+                        <li class="carousel-item" style="--_index: 9; --_image-url: url('Images/5.jpg')"><p>Architecture Example 9</p></li>
+                        <li class="carousel-item" style="--_index: 10; --_image-url: url('Images/7.jpg')"><p>Architecture Example 10</p></li>
+                        <li class="carousel-item" style="--_index: 11; --_image-url: url('Images/6.jpg')"><p>Architecture Example 11</p></li>
+    
+                        <li class="carousel-ground"></li>
+    
+                </ul>
+    
+        </div>
+    
+    </div>
+    <button class="bottom-end-btn" onclick="location.href='page4.html'">
+  💗 Bangrmmmm 💗
+</button>
+
+<style>
+  .bottom-end-btn {
+    position: fixed;
+    bottom: 20px;     /* distance from bottom */
+    right: 20px;      /* distance from right */
+    
+    padding: 12px 25px;
+    font-size: 18px;
+    color: white;
+    background: #ff80b3;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    
+    font-family: "Comic Sans MS", "Poppins", cursive;
+
+    /* glow animation */
+    animation: cuteGlow 1.6s infinite alternate;
+  }
+
+  @keyframes cuteGlow {
+    from {
+      box-shadow: 0 0 10px #ffa5cc, 0 0 25px #ff6db3;
+      transform: scale(1);
+    }
+    to {
+      box-shadow: 0 0 25px #ffc6df, 0 0 55px #ff4699;
+      transform: scale(1.07);
+    }
+  }
+</style>
+
+</body>
+</html>

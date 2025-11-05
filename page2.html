@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Glorious Birthday Burst 💖</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    height:100vh;
+    overflow:hidden;
+    background: radial-gradient(circle at 40% 30%, #2b000d, #0a0003 85%);
+    font-family:'Poppins',sans-serif;
+    position:relative;
+    color:white;
+  }
+
+  /* 🌟 Floating Dots */
+  .dot{
+    position:absolute;
+    border-radius:50%;
+    background: radial-gradient(circle, rgba(255,170,190,0.8), rgba(255,255,255,0.1));
+    opacity:0.4;
+    animation: moveDots 20s linear infinite;
+    z-index:0;
+  }
+
+  @keyframes moveDots{
+    0%{transform:translateY(0) translateX(0); opacity:0.3;}
+    50%{opacity:0.7;}
+    100%{transform:translateY(-120vh) translateX(30px); opacity:0;}
+  }
+
+  h2{
+    position:absolute;
+    top:25px;
+    width:100%;
+    text-align:center;
+    font-size:2.2em;
+    color:#ff9eb3;
+    text-shadow:0 0 25px #ff7fa2, 0 0 50px #ff4d6d;
+    z-index:10;
+    letter-spacing:1px;
+  }
+
+  .bubble{
+    position:absolute;
+    border-radius:50%;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: radial-gradient(circle at 30% 30%, rgba(255,150,160,0.9), rgba(90,0,20,0.8));
+    box-shadow: 0 0 100px rgba(255,120,140,0.8), inset 0 0 80px rgba(255,200,210,0.4);
+    animation: float 14s ease-in-out infinite;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    z-index:5;
+  }
+
+  @keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-150px);}
+  }
+
+  @keyframes burst {
+    0% {transform: scale(1); opacity: 1; box-shadow:0 0 100px #ffb3c1;}
+    20% {transform: scale(3); opacity: 1; box-shadow:0 0 200px #ff3366;}
+    60% {transform: scale(5); opacity: 0.8; box-shadow:0 0 300px #ff0044;}
+    100% {transform: scale(0); opacity: 0;}
+  }
+
+  .burst { animation: burst 1s forwards; }
+
+  .spark, .heart {
+    position:absolute;
+    border-radius:50%;
+    pointer-events:none;
+  }
+
+  .spark {
+    width:12px; height:12px;
+    background: radial-gradient(circle,#ffd1d9,#ff0044);
+    animation: sparkAnim 1.2s ease-out forwards;
+  }
+
+  .heart {
+    width:16px; height:16px;
+    background: radial-gradient(circle,#ff4d6d,#b3003b);
+    clip-path: polygon(50% 0%, 61% 16%, 78% 20%, 84% 35%, 83% 52%, 68% 75%, 50% 90%, 32% 75%, 17% 52%, 16% 35%, 22% 20%, 39% 16%);
+    animation: heartAnim 1.5s ease-out forwards;
+  }
+
+  @keyframes sparkAnim {
+    to { transform: translate(var(--x), var(--y)) scale(0); opacity:0; }
+  }
+
+  @keyframes heartAnim {
+    0% {transform: scale(0.5) translate(0,0); opacity:1;}
+    100% {transform: scale(1.5) translate(var(--x), var(--y)); opacity:0;}
+  }
+
+  .message{
+    position:absolute;
+    background: rgba(255, 120, 140, 0.15);
+    border:1px solid rgba(255,255,255,0.25);
+    border-radius:25px;
+    padding:25px;
+    font-size:1.4em;
+    max-width:450px;
+    text-align:center;
+    color:#fff;
+    backdrop-filter: blur(10px);
+    opacity:0;
+    transform:scale(0.5);
+    transition: all 0.6s ease;
+    box-shadow:0 0 40px rgba(255,120,140,0.5);
+  }
+
+  .show{opacity:1;transform:scale(1);}
+</style>
+</head>
+<div style="text-align: center; background-color: #0a0003; padding: 20px;">
+  <button type="button" onclick="location.href='page3.html'" class="love-button">
+    💖 Eshuuuuu Bangrmmmmmmm 💖
+  </button>
+</div>
+
+<style>
+  .love-button {
+    padding: 12px 25px;
+    font-size: 22px;
+    color: #ffffff;
+    background: #ff8cb4;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Comic Sans MS", "Poppins", cursive;
+    letter-spacing: 1px;
+
+    /* Glow effect */
+    animation: glow 1.8s infinite ease-in-out alternate;
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 10px #ff9ec9, 0 0 20px #ff6ba5, 0 0 30px #ff4f9b;
+      text-shadow: 0 0 5px #ffffff, 0 0 15px #ffbad7;
+      transform: scale(1);
+    }
+    to {
+      box-shadow: 0 0 20px #ffa7d5, 0 0 35px #ff5ba5, 0 0 60px #ff2c92;
+      text-shadow: 0 0 8px #ffffff, 0 0 25px #ffd6e9;
+      transform: scale(1.07);
+    }
+  }
+</style>
+
+<script>
+/* 🌟 Create floating background dots */
+for(let i=0;i<60;i++){
+  const dot=document.createElement('div');
+  dot.classList.add('dot');
+  const size=Math.random()*6+3; // 3–9px dots
+  dot.style.width=size+'px';
+  dot.style.height=size+'px';
+  dot.style.left=Math.random()*100+'%';
+  dot.style.top=Math.random()*100+'%';
+  dot.style.animationDuration=15+Math.random()*15+'s';
+  dot.style.animationDelay=Math.random()*10+'s';
+  dot.style.opacity=Math.random()*0.5+0.2;
+  document.body.appendChild(dot);
+}
+
+/* 💖 Your bubble code */
+const messages=[
+  "When you’re around, everything just feels right❤️",
+  "I may not say it often, but you’re my biggest blessing✨",
+  "I’m really lucky to have someone like you in my life💞",
+  "You can scold me every day, just promise to stay with me forever💋",
+  "I’m proud of the person you are and everything you’re becoming🌸",
+  "No matter where life takes us, my heart will always choose you❤️",
+  "You’re my peace, my headache, and my favorite human — all in one💗",
+  "You’re my favorite kind of addiction — the one I never want to quit🌹",
+  "I didn’t plan to fall this hard, but now you’re my habit💝",
+  "Are you a magnet? Because you’re doing a great job at attracting me💖",
+  "Dinner first, or should we go straight to dessert?🍰",
+  "Can I borrow a kiss? I promise I’ll give it back💋",
+  "You look cold, want to use me as a blanket?❤️‍🔥",
+  "“No matter where life takes us, I’ll be right by your side — not just in the easy moments, but in the storms too🌧️",
+  "Na bujji bangaram ra nuv😘",
+  "Nuv nannu vadhalka nen ninnu vadhalnu sare na bujjoda🫂",
+  "Love you Love you Love you eshuuuuuuuu 💗",
+  "Bujjiii pillodaaaaaa 💖",
+  "Happy Birthday pandhi pillodaaaa 🎂"
+];
+
+const num=19;
+for(let i=0;i<num;i++){
+  const bubble=document.createElement('div');
+  bubble.classList.add('bubble');
+  const size=Math.random()*150+250; // Giant bubbles (250–400px)
+  bubble.style.width=size+'px';
+  bubble.style.height=size+'px';
+  bubble.style.left=Math.random()*(window.innerWidth-size)+'px';
+  bubble.style.top=Math.random()*(window.innerHeight-size)+'px';
+  bubble.style.animationDuration=10+Math.random()*5+'s';
+  document.body.appendChild(bubble);
+
+  bubble.addEventListener('click',()=>{
+    bubble.classList.add('burst');
+
+    // Hearts + Sparks explosion
+    for(let j=0;j<22;j++){
+      const element = Math.random() > 0.4 ? 'spark' : 'heart';
+      const item=document.createElement('div');
+      item.classList.add(element);
+      item.style.left=bubble.style.left;
+      item.style.top=bubble.style.top;
+      const angle=Math.random()*2*Math.PI;
+      const dist=Math.random()*280+100;
+      item.style.setProperty('--x',`${Math.cos(angle)*dist}px`);
+      item.style.setProperty('--y',`${Math.sin(angle)*dist}px`);
+      document.body.appendChild(item);
+      setTimeout(()=>item.remove(),1200);
+    }
+
+    setTimeout(()=>bubble.remove(),1000);
+
+    // Message
+    const msg=document.createElement('div');
+    msg.classList.add('message');
+    msg.textContent=messages[i];
+    msg.style.left=bubble.style.left;
+    msg.style.top=bubble.style.top;
+    document.body.appendChild(msg);
+    setTimeout(()=>msg.classList.add('show'),80);
+    setTimeout(()=>{
+      msg.classList.remove('show');
+      setTimeout(()=>msg.remove(),600);
+    },6500);
+  });
+}
+</script>
+</body>
+</html>
